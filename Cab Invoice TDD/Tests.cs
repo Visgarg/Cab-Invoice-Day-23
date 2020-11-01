@@ -8,6 +8,7 @@
 namespace Cab_Invoice_TDD
 {
     using NUnit.Framework;
+    using CabInvoiceDay23;
 
     /// <summary>
     /// adding class to do tests for program
@@ -15,20 +16,19 @@ namespace Cab_Invoice_TDD
     public class Tests
     {
         /// <summary>
-        /// Setups this instance.
-        /// </summary>
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        /// <summary>
         /// Test1s this instance.
         /// </summary>
         [Test]
-        public void Test1()
+        public void GivenDistanceAndTimeShouldReturnTotalFare()
         {
-            Assert.Pass();
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+            double distance = 2.0;
+            int time = 5;
+
+            //calculating fare
+            double fare = invoiceGenerator.CalculateFare(distance, time);
+            double expected = 25;
+            Assert.AreEqual(expected, fare);
         }
     }
 }
