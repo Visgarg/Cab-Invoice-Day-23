@@ -1,9 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="InvoiceSummary.cs" company="Capgemini">
+//   Copyright
+// </copyright>
+// <creator Name="Vishal Garg"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace CabInvoiceDay23
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     /// <summary>
     /// invoice summary generates number of rides, total fare
     /// also generates average fare for summary
