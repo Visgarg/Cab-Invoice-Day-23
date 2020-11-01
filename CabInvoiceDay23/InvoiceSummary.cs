@@ -24,7 +24,7 @@ namespace CabInvoiceDay23
         {
             this.numberOfRides = numberOfRides;
             this.totalFare = totalFare;
-            this.averageFare = (this.totalFare) / (this.numberOfRides);
+            this.averageFare = totalFare / numberOfRides;
         }
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
@@ -44,7 +44,7 @@ namespace CabInvoiceDay23
                 return false;
             }
             InvoiceSummary imputedObject = (InvoiceSummary)obj;
-            return this.numberOfRides == imputedObject.numberOfRides && this.totalFare == imputedObject.totalFare;
+            return this.numberOfRides == imputedObject.numberOfRides && this.totalFare == imputedObject.totalFare && this.averageFare==imputedObject.averageFare ;
         }
     }
 }
