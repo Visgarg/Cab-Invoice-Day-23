@@ -22,13 +22,13 @@ namespace Cab_Invoice_TDD
         [Test]
         public void GivenDistanceAndTimeShouldReturnTotalFare()
         {
-            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             double distance = 2.0;
             int time = 5;
 
             //calculating fare
             double fare = invoiceGenerator.CalculateFare(distance, time);
-            double expected = 25;
+            double expected = 40;
             Assert.AreEqual(expected, fare);
         }
         /// <summary>
@@ -38,12 +38,12 @@ namespace Cab_Invoice_TDD
         public void GivenMultipleRidesShouldReturnInvoiceSummary()
         {
             //Creating instance of invoice generator 
-            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
 
             //Generating Summary for rides
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
-            InvoiceSummary expectedSummary = new InvoiceSummary(2, 30.0);
+            InvoiceSummary expectedSummary = new InvoiceSummary(2, 60.0);
 
             //Asserting values
             Assert.AreEqual(expectedSummary, summary);
@@ -55,12 +55,12 @@ namespace Cab_Invoice_TDD
         public void GivenMultipleRidesShouldReturnInvoiceSummarywithAverageFare()
         {
             //Creating instance of invoice generator 
-            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
 
             //Generating Summary for rides
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
-            InvoiceSummary expectedSummary = new InvoiceSummary(2, 30.0);
+            InvoiceSummary expectedSummary = new InvoiceSummary(2, 60.0);
 
             //Asserting values with average in equals to formula in invoice summary
             Assert.AreEqual(expectedSummary, summary);
@@ -72,7 +72,7 @@ namespace Cab_Invoice_TDD
         public void GivenRidesForDifferentUsersShouldReturnInvoiceSummary()
         {
             //Creating instance of invoice generator 
-            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
             string userId = "001";
             invoiceGenerator.AddRides(userId, rides);
